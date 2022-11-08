@@ -39,3 +39,26 @@ function valorar(valoracion) {
     reportJoke.push(reportAcudit);
     console.table(reportJoke);
 }
+// NIVEL 2, EJERCICIO 4: 
+//llamar,al abrir la pagina ¿evento?, una API de tiempo y mostrar el resultado
+//no hace falta evento simplemente con llamar a la funcion del tiron, nada de onclick ni nada 
+const infoTiempo = () => __awaiter(void 0, void 0, void 0, function* () {
+    let infoMeteo;
+    let infoTemperatura;
+    try {
+        const resposta = yield fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.56&lon=2.01&appid=cf6b3b08d8458fe12e0dddab0b644c2a&lang=ES");
+        const dades = yield resposta.json();
+        /*console.table(dades);
+        console.log(dades);
+        console.log(dades.weather);
+        console.log(dades.main);
+        console.log(typeof dades.main.feels_like, dades.main.feels_like );*/
+        infoMeteo = dades.weather[0].description;
+        infoTemperatura = dades.main.feels_like - 273.15;
+    }
+    catch (error) {
+        console.log(error);
+    }
+    document.getElementById("tiempo").innerHTML = infoMeteo + " " + infoTemperatura.toFixed(0) + "ºC";
+});
+infoTiempo();
