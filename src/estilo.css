@@ -12,6 +12,13 @@ body {
         position: absolute;
         top: 20rem;
         left:35rem;
-    
-
 }
+
+.puntuacion{
+    background-color: rgba(243, 247, 245, 0.1);
+    }
+
+    .puntuacion:hover {
+        background-color: rgba(93, 139, 184, 0.1);
+        border-color: blue;
+    }

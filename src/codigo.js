@@ -24,4 +24,18 @@ const cargarChiste = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
-//EJERCIO 2
+; //genero un "tipo" de objeto
+let reportJoke = []; //preparo un array vacío 
+function valorar(valoracion) {
+    let chisteValorado = document.getElementById("chiste").innerHTML;
+    let puntuacion = valoracion; //¿enum?
+    let fecha = new Date();
+    let fechaString = fecha.toISOString();
+    const reportAcudit = {
+        joke: chisteValorado,
+        score: puntuacion,
+        date: fechaString
+    };
+    reportJoke.push(reportAcudit);
+    console.table(reportJoke);
+}

@@ -15,3 +15,26 @@ const cargarChiste = async () => {
 }
 
 //EJERCIO 2
+//maquetacion inicial
+
+//EJERCICIO 3
+interface ReportAcudit { joke: string, score: number, date: string };//genero un "tipo" de objeto
+type ReportJoke = ReportAcudit[];//declaro el tipo array de objetos del tipo ReportAcudit
+let reportJoke: ReportJoke = [];//preparo un array vacío 
+
+
+function valorar(valoracion: number): void {
+    let chisteValorado: string = document.getElementById("chiste").innerHTML;
+    let puntuacion: number = valoracion;//¿enum?
+    let fecha = new Date();
+    let fechaString = fecha.toISOString();
+
+    const reportAcudit: ReportAcudit = {
+      joke: chisteValorado,
+      score: puntuacion,
+      date : fechaString
+    };
+
+    reportJoke.push(reportAcudit);
+    console.table(reportJoke);
+}
