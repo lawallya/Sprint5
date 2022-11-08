@@ -1,0 +1,17 @@
+body {
+
+    background-image: url(/img/DSCN0740.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hide;
+    
+}
+.containerChiste{
+    background-color: rgba(127, 255, 212,0.6 );
+        width: 40rem;
+        position: absolute;
+        top: 20rem;
+        left:35rem;
+    
+
+}

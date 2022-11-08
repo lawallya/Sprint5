@@ -24,3 +24,4 @@ const cargarChiste = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
+//EJERCIO 2

@@ -13,3 +13,5 @@ const cargarChiste = async () => {
         console.log(error);
     }
 }
+
+//EJERCIO 2
