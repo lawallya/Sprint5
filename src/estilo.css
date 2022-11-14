@@ -1,19 +1,16 @@
-/*body {
-    /*background-image: url("/img/blob1).svg") left bottom;
+* {
+    box-sizing: border-box;
+}
 
-   /* background-image: url(/img/DSCN0740.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hide;
-    
-}*/
 main {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    width: 100vw;
+    height: 100vh;
     /*para posicionar el contenedor de los chistes*/
-    width: auto;
-    height: auto;
     margin: auto;
-    border: solid red;
+   
 }
 
 body {
@@ -21,31 +18,26 @@ body {
 }
 
 .claseTiempo {
-    position: abosolute;
-    display: inline-flex;
-    /*display: flex;*/
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     position: top left;
-    /*padding: 2rem;*/
     font-size: 0.5em;
-    border: solid;
 }
 
 
 #iconoTiempo {
-    /*align-self: center;*/
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-   /* top: 1.1rem;*/
-    /* esto tiene que haber otra manera mejor*/
-    border: solid;
+    width: 5em;
+
 }
 
 #tiempo {
-    font-size: 2em;
+    font-size: 1.5em;
     border-left: 2px solid;
     padding-left: 1em;
-    border: solid;
 }
 
 
@@ -71,15 +63,15 @@ body {
 .paraFondo {
     /*referencia para posicionar elementos*/
     width: 100%;
+    height: 100%;
     position: relative;
     margin: auto;
     text-align: center;
-    border: solid blue;
 }
 
 .fondo {
     display: inline-block;
-    height: 50vh;
+    height: 100vh;
     width: 28%;
     background-repeat: no-repeat;
 }
@@ -88,13 +80,12 @@ body {
     background-image: url(/img/blob3.svg);
     background-size: 30%;
     background-position: bottom right;
-
 }
 
 .centro {
     width: 40%;
     background-image: url(/img/blob.svg);
-    background-size: 130%;
+    background-size: 127%;
     background-position: center;
 }
 
@@ -109,32 +100,27 @@ body {
     display: inline;
     text-align: center;
     position: absolute;
-
     /*si no pongo un position relative antes, este div se posiciona respecto del body, interesa mas respecto al main*/
     top: 40%;
     left: 32%;
-    color: white;
+    color:blue;
     line-height: 1em;
-    border: solid violet;
-    display: ;
+    
 }
 
-h1 {
+h1,h2 {
     font-size: 1em;
-    border: solid red;
-    display: inline-flex;
+    
 }
 
 #chiste {
     font-size: 0.8em;
-    border: solid black;
     display: inline-flex;
 }
 
 .containerBotones {
     padding-bottom: 1em;
     padding-top: 0px;
-    border: solid blue;
 }
 
 .botonSiguiente {
@@ -142,8 +128,6 @@ h1 {
     background-color: yellow;
     border-radius: 20px;
     padding: 6px;
-
-
     /*before para desplazar el borde o el fondo? no funciona*/
 }
 
