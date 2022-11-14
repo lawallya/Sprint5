@@ -29,9 +29,9 @@ function valorar(valoracion: number): void {
     let fechaString = fecha.toISOString();
 
     const reportAcudit: ReportAcudit = {
-      joke: chisteValorado,
-      score: puntuacion,
-      date : fechaString
+        joke: chisteValorado,
+        score: puntuacion,
+        date: fechaString
     };
 
     reportJoke.push(reportAcudit);
@@ -39,33 +39,41 @@ function valorar(valoracion: number): void {
 }
 
 // NIVEL 2, EJERCICIO 4: 
-    //llamar,al abrir la pagina ¿evento?, una API de tiempo y mostrar el resultado
-    //no hace falta evento simplemente con llamar a la funcion del tiron, nada de onclick ni nada 
+//llamar,al abrir la pagina ¿evento?, una API de tiempo y mostrar el resultado
+//no hace falta evento simplemente con llamar a la funcion del tiron, nada de onclick ni nada 
 
-    const infoTiempo = async () => {
-        let infoMeteo : string;
-        let infoTemperatura: number;
-        try {
-          const resposta = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.56&lon=2.01&appid=cf6b3b08d8458fe12e0dddab0b644c2a&lang=ES");
-          const dades = await resposta.json();
+const infoTiempo = async () => {
+    let infoMeteo: string;
+    let infoTemperatura: number;
+    try {
+        const respostaTiempo = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.56&lon=2.01&appid=cf6b3b08d8458fe12e0dddab0b644c2a&lang=ES");
+        const dadesTiempo = await respostaTiempo.json();
 
-          /*console.table(dades);
-          console.log(dades);
-          console.log(dades.weather);
-          console.log(dades.main);
-          console.log(typeof dades.main.feels_like, dades.main.feels_like );*/
+        console.table(dadesTiempo);
 
-          infoMeteo = dades.weather[0].description 
-          infoTemperatura = dades.main.feels_like -273.15;
-        } catch (error) {
-          console.log(error);
-        }
-        document.getElementById("tiempo").innerHTML = infoMeteo + " " +infoTemperatura.toFixed(0) + "ºC";
-      }
+        console.log(dadesTiempo.weather);
+        /*console.log(dades.main);
+        console.log(typeof dades.main.feels_like, dades.main.feels_like );*/
 
-      infoTiempo();
+        infoMeteo = dadesTiempo.weather[0].icon;//tengo que poner el iconito que me da la API en vez de la descripcion 
+        infoTemperatura = dadesTiempo.main.feels_like - 273.15;
+    } catch (error) {
+        console.log(error);
+    }
+    //document.getElementById("#iconoTiempo").src= ; //me dice que .src no existe para getElementById ni para querySelector 
 
-      //EJERCICIO 5
+    document.getElementById("tiempo").innerHTML = infoTemperatura.toFixed(0) + "ºC";
+    const iconoTiempo = document.getElementById("iconoTiempo");
+    iconoTiempo.setAttribute("src", `http://openweathermap.org/img/wn/${infoMeteo}.png`);
+
+    // http://openweathermap.org/img/wn/10d@2x.png peticion para obtener el icono que da la api. el icono hay que ponerlo en el 10d@2x. Solo está disponible en respuesta json
+    // tuTiempo.API guardade en postman aunque aqui he utilizado openweathermap.
+
+}
+
+infoTiempo();
+
+//EJERCICIO 5
 /**alterna chistes de dos APIs para que no se aburran.
  * cada vez que se clica el boton "chiste sigiente" se actualiza un contador
  * cuando el contador sea impar busca chistes del ejercicio 1

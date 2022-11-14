@@ -44,20 +44,24 @@ const infoTiempo = () => __awaiter(void 0, void 0, void 0, function* () {
     let infoMeteo;
     let infoTemperatura;
     try {
-        const resposta = yield fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.56&lon=2.01&appid=cf6b3b08d8458fe12e0dddab0b644c2a&lang=ES");
-        const dades = yield resposta.json();
-        /*console.table(dades);
-        console.log(dades);
-        console.log(dades.weather);
-        console.log(dades.main);
+        const respostaTiempo = yield fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.56&lon=2.01&appid=cf6b3b08d8458fe12e0dddab0b644c2a&lang=ES");
+        const dadesTiempo = yield respostaTiempo.json();
+        console.table(dadesTiempo);
+        console.log(dadesTiempo.weather);
+        /*console.log(dades.main);
         console.log(typeof dades.main.feels_like, dades.main.feels_like );*/
-        infoMeteo = dades.weather[0].description;
-        infoTemperatura = dades.main.feels_like - 273.15;
+        infoMeteo = dadesTiempo.weather[0].icon; //tengo que poner el iconito que me da la API en vez de la descripcion 
+        infoTemperatura = dadesTiempo.main.feels_like - 273.15;
     }
     catch (error) {
         console.log(error);
     }
-    document.getElementById("tiempo").innerHTML = infoMeteo + " " + infoTemperatura.toFixed(0) + "ºC";
+    //document.getElementById("#iconoTiempo").src= ; //me dice que .src no existe para getElementById ni para querySelector 
+    document.getElementById("tiempo").innerHTML = infoTemperatura.toFixed(0) + "ºC";
+    const iconoTiempo = document.getElementById("iconoTiempo");
+    iconoTiempo.setAttribute("src", `http://openweathermap.org/img/wn/${infoMeteo}.png`);
+    // http://openweathermap.org/img/wn/10d@2x.png peticion para obtener el icono que da la api. el icono hay que ponerlo en el 10d@2x. Solo está disponible en respuesta json
+    // tuTiempo.API guardade en postman aunque aqui he utilizado openweathermap.
 });
 infoTiempo();
 //EJERCICIO 5
