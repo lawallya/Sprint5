@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint5</title>
+    <link rel="stylesheet" href="/src/estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
+</head>
+<body>
+    <main class="container" id="container">
+        <div class="claseTiempo row">
+            <img class="col" id="iconoTiempo" src="" alt="icono tiempo">
+            <p class="col" id="tiempo"></p>
+        </div>
+        <div class="paraFondo row">
+            <div class="fondo start col "></div>
+            <div class="fondo centro col "></div>
+            <div class="fondo end col"></div>
+        </div>
+        <div class="containerChiste   p-3 text-center">
+            <h1 class="titulo text-center">Preparate para reir...</h1>
+            <h2 id="chiste">Aqui está el chiste...</h2>
+            <div class="containerBotones p-2">
+                <button class="puntuacion" id="puntuacion1" onclick="valorar(1)">😓</button>
+                <button class="puntuacion" id="puntuacion2" onclick="valorar(2)">😐</button>
+                <button class="puntuacion" id="puntuacion3" onclick="valorar(3)">😂 </button>
+            </div>
+            <button class="botonSiguiente mb-2  " id="botonSiguiente" onclick="cargarChistesAlternos()">Mostrar
+                chiste </button>
+        </div>
+    </main>
+    <script src="/src/codigo.js"></script>
+</body>
+
+</html>
